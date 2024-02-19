@@ -1,0 +1,13 @@
+docker container run hello-world
+docker run -it ubuntu bash
+ls
+cd usr
+ls
+cd src
+ls 
+mkdir app
+cd app
+ls
+touch index.js
+ls
+exit

@@ -22,21 +22,14 @@ router.post('/', async (req, res) => {
   res.send(todo);
 });
 
-/* GET usage metadata. */
-router.get('/statistics', async (req, res) => {
-  const added_todos = await getAsync('added_todos');
-
-  res.send({ added_todos });
-})
-
 const singleRouter = express.Router();
 
 const findByIdMiddleware = async (req, res, next) => {
-  const { id } = req.params
-  req.todo = await Todo.findById(id)
-  if (!req.todo) return res.sendStatus(404)
+  const { id } = req.params;
+  req.todo = await Todo.findById(id);
+  if (!req.todo) return res.sendStatus(404);
 
-  next()
+  next();
 }
 
 /* DELETE todo. */

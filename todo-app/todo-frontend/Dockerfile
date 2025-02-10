@@ -10,6 +10,10 @@ RUN npm ci
 
 RUN npm run build
 
+FROM build-stage AS testing-stage
+
+RUN npm run test
+
 FROM nginx:1.25-alpine
 
-COPY --from=build-stage /usr/src/app/dist /usr/share/nginx/html
+COPY --from=testing-stage /usr/src/app/dist /usr/share/nginx/html

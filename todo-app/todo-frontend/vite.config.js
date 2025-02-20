@@ -7,5 +7,14 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true
+  },
+  server: {
+    watch: {
+      usePolling: true
+    },
+    host: true,
+    hmr: {
+      clientPort: 5173
+    }
   }
 })
